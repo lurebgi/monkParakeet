@@ -21,9 +21,9 @@ samtools index -@ $cpu $TMPDIR/$genome.$size.sorted.bam
 mv $TMPDIR/$genome.$size.sorted.bam $TMPDIR/$genome.$size.sorted.bam.bai .
 
 
-java -Xmx108g -jar /apps/picard/2.21.4/picard.jar  MarkDuplicates I=$genome.$size.sorted.bam O=$TMPDIR/$genome.$size.dedup.bam M=$size.m
-samtools index -@ $cpu  $TMPDIR/$genome.$size.dedup.bam
-mv $TMPDIR/$genome.$size.dedup.bam $TMPDIR/$genome.$size.dedup.bam.bai .
+#java -Xmx108g -jar /apps/picard/2.21.4/picard.jar  MarkDuplicates I=$genome.$size.sorted.bam O=$TMPDIR/$genome.$size.dedup.bam M=$size.m
+#samtools index -@ $cpu  $TMPDIR/$genome.$size.dedup.bam
+#mv $TMPDIR/$genome.$size.dedup.bam $TMPDIR/$genome.$size.dedup.bam.bai .
 
 cut -f 1,2 $genome0.fai > $genome0.fai.g
 bedtools makewindows -g $genome0.fai.g -w 50000 > $genome0.fai.g.50k
